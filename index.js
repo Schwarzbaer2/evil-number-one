@@ -58,10 +58,10 @@ function gameLogic() {
     }
    }
 
-   if (player1Score >= 50) {
+   if (player1Score >= 20) {
        message.textContent = "Player 1 Won 🥳"
        showResetButton()
-   }  else if (player2Score >= 50) {
+   }  else if (player2Score >= 20) {
        message.textContent = "Player 2 Won 🎉"
        showResetButton()
    }
