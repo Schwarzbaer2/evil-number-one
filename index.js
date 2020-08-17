@@ -60,11 +60,10 @@ function gameLogic() {
 
    if (player1Score >= 20) {
        message.textContent = "Player 1 Won 🥳"
-       animatedMessage()
+
        showResetButton()
    }  else if (player2Score >= 20) {
        message.textContent = "Player 2 Won 🎉"
-       animatedMessage()
        showResetButton()
    }
    if (turn == 5 && player1Turn) {
