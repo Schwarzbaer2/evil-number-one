@@ -91,6 +91,7 @@ function reset() {
     player1Score = 0
     player2Score = 0
     player1Turn = true
+    turn = 0
     player1Scoreboard.textContent = 0
     player2Scoreboard.textContent = 0
     player1Dice.textContent = "-"
