@@ -18,23 +18,14 @@ function showResetButton() {
     resetBtn.style.display = "block"
 }
 
-function animatedMessageOn() {
-const animationOn = document.querySelector('.animated');
-animationOn.classList.add('animate__animated', 'animate__bounceInLeft');
-}
-
-
 function gameLogic() {
     turn++;
     const randomNumber = Math.floor(Math.random() * 6) + 1
-
-
     if (player1Turn) {
         message.textContent = `Player 1 Turn ${turn + 1}`
         if (randomNumber == 1) {
             message.textContent = "😈Evil Number One😈"
-            animatedMessage()
-            player1Score -= 20;
+            player1Score -= 10;
             player1Scoreboard.textContent = player1Score
             player1Dice.textContent = randomNumber
         } else {
@@ -47,8 +38,7 @@ function gameLogic() {
        message.textContent = `Player 2 Turn ${turn + 1}`
        if (randomNumber == 1) {
         message.textContent = "😈Evil Number One😈"
-        animatedMessage()
-        player2Score -= 20;
+        player2Score -= 10;
         player2Scoreboard.textContent = player1Score
         player2Dice.textContent = randomNumber
     } else {
@@ -60,7 +50,6 @@ function gameLogic() {
 
    if (player1Score >= 20) {
        message.textContent = "Player 1 Won 🥳"
-
        showResetButton()
    }  else if (player2Score >= 20) {
        message.textContent = "Player 2 Won 🎉"
