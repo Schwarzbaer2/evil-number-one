@@ -20,7 +20,6 @@ function showResetButton() {
 
 function animatedMessage() {
 const element = document.querySelector('.animated');
-element.classList.add('animate__animated', 'animate__bounceInLeft');
 }
 
 function gameLogic() {
@@ -31,7 +30,7 @@ function gameLogic() {
         message.textContent = `Player 1 Turn ${turn + 1}`
         if (randomNumber == 1) {
             message.textContent = "😈Evil Number One😈"
-            animatedMessage();
+            element.classList.add('animate__animated', 'animate__bounceInLeft');
             player1Score -= 20;
             player1Scoreboard.textContent = player1Score
             player1Dice.textContent = randomNumber
@@ -45,7 +44,7 @@ function gameLogic() {
        message.textContent = `Player 2 Turn ${turn + 1}`
        if (randomNumber == 1) {
         message.textContent = "😈Evil Number One😈"
-        animatedMessage();
+        element.classList.add('animate__animated', 'animate__bounceInLeft');
         player2Score -= 20;
         player2Scoreboard.textContent = player1Score
         player2Dice.textContent = randomNumber
@@ -58,11 +57,11 @@ function gameLogic() {
 
    if (player1Score >= 20) {
        message.textContent = "Player 1 Won 🥳"
-       animatedMessage();
+       element.classList.add('animate__animated', 'animate__bounceInLeft');
        showResetButton()
    }  else if (player2Score >= 20) {
        message.textContent = "Player 2 Won 🎉"
-       animatedMessage();
+       element.classList.add('animate__animated', 'animate__bounceInLeft');;
        showResetButton()
    }
    if (turn == 5 && player1Turn) {
