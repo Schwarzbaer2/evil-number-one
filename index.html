@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
+    <link href="style.css" rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evil Number One</title>
+</head>
+<body>
+    <section class="masthead" role="img" aria-label="Image Description">
+        <h1>
+          Evil Number One 😈
+        </h1>
+        <div class="container">
+            <h2 class="animated" id="message">Introduction:</h2>
+                <p id="introduction">The player must roll the dice five times per round.
+                All pips will be added together.<br>
+                <strong>Be careful:</strong> if you roll the evil number one: you lost points.
+                Whoever gets 50 points first wins. Good luck.</p>
+            <div class ="players" id="playersHidden">
+                <div id="player1">
+                    <h2>Score:
+                        <span id="player1Scoreboard">0</span>
+                    </h2>
+                    <div id="player1Dice" class="dice active">-</div>
+                </div>
+                <div id="player2">
+                    <h2>Score:
+                        <span id="player2Scoreboard">0</span>
+                    </h2>
+                    <div id="player2Dice" class="dice">-</div>
+                </div>
+            </div>
+            <button id="startBtn">Click To Start! 🎲</button>
+            <button id="rollBtn">Roll Dice 🎲</button>
+            <button id="resetBtn">Reset Game 🔁</button>
+        </div>
+      </section>
+
+
+
+
+
+    <script src="index.js"></script>
+</body>
+</html>
+
+
+
+
