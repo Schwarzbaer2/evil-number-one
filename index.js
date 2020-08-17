@@ -23,16 +23,11 @@ const animationOn = document.querySelector('.animated');
 animationOn.classList.add('animate__animated', 'animate__bounceInLeft');
 }
 
-function animatedMessageOff() {
-    const animationOff = document.querySelector('.animated');
-    animationOff.classList.remove('animate__animated', 'animate__bounceInLeft');
-    }
-
 
 function gameLogic() {
     turn++;
     const randomNumber = Math.floor(Math.random() * 6) + 1
-    animatedMessageOff()
+
 
     if (player1Turn) {
         message.textContent = `Player 1 Turn ${turn + 1}`
