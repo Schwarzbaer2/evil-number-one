@@ -2,7 +2,7 @@
 let player1Score = 0
 let player2Score = 0
 let player1Turn = true
-let turn = 1
+let turn = 0
 
 // Create variables to store references to the necessary DOM nodes
 const player1Dice = document.getElementById("player1Dice")
@@ -19,33 +19,41 @@ function showResetButton() {
 }
 
 function gameLogic() {
-    turn++;
+
     const randomNumber = Math.floor(Math.random() * 6) + 1
 
     if (player1Turn) {
 
         if (randomNumber == 1) {
+            turn++;
             message.textContent = "😈Evil Number One😈"
             player1Score -=10;
             player1Scoreboard.textContent = player1Score
             player1Dice.textContent = randomNumber
+
         } else {
+        turn++;
         message.textContent = `Player 1 Turn ${turn}`
        player1Score += randomNumber
        player1Scoreboard.textContent = player1Score
        player1Dice.textContent = randomNumber
+
         }
    } else {
        if (randomNumber == 1) {
+        turn++;
         message.textContent = "😈Evil Number One😈"
         player2Score -=10;
         player2Scoreboard.textContent = player2Score
         player2Dice.textContent = randomNumber
+
     } else {
+        turn++;
         message.textContent = `Player 2 Turn ${turn}`
-       player2Score += randomNumber
-       player2Scoreboard.textContent = player2Score
-       player2Dice.textContent = randomNumber
+        player2Score += randomNumber
+        player2Scoreboard.textContent = player2Score
+        player2Dice.textContent = randomNumber
+
     }
    }
    if (player1Score >= 20) {
@@ -56,13 +64,14 @@ function gameLogic() {
        showResetButton()
    }
 
-   if (player1Turn && turn == 5) {
+   if (turn == 5 && player1Turn && player1Score < 20) {
        player1Dice.classList.remove("active")
        player2Dice.classList.add("active")
        message.textContent = `Player 2 Turn 1`
        player1Turn = !player1Turn
        turn = 0
-   } else if (!player1Turn && turn == 5) {
+
+   } else if (turn == 5 && !player1Turn && player2Score < 20) {
         player2Dice.classList.remove("active")
         player1Dice.classList.add("active")
         message.textContent = `Player 1 Turn 1`
@@ -91,12 +100,12 @@ function reset() {
     player1Score = 0
     player2Score = 0
     player1Turn = true
-    turn = 1
+    turn = 0
     player1Scoreboard.textContent = 0
     player2Scoreboard.textContent = 0
     player1Dice.textContent = "-"
     player2Dice.textContent = "-"
-    message.textContent = `Player 1 Turn ${turn}`
+    message.textContent = `Player 1 Turn 1`
     playersHidden.style.display ="flex"
     introduction.style.display = "none"
     startBtn.style.display = "none"
