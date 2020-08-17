@@ -19,14 +19,20 @@ function showResetButton() {
 }
 
 function animatedMessageOn() {
-const element = document.querySelector('.animated');
-element.classList.add('animate__animated', 'animate__bounceInLeft');
+const animationOn = document.querySelector('.animated');
+animationOn.classList.add('animate__animated', 'animate__bounceInLeft');
 }
+
+function animatedMessageOff() {
+    const animationOff = document.querySelector('.animated');
+    animatedMessageOff.classList.remove('animate__animated', 'animate__bounceInLeft');
+    }
 
 
 function gameLogic() {
     turn++;
     const randomNumber = Math.floor(Math.random() * 6) + 1
+    animatedMessageOff()
 
     if (player1Turn) {
         message.textContent = `Player 1 Turn ${turn + 1}`
@@ -90,7 +96,6 @@ reset();
 
 /* Hook up a click event listener to the Roll Dice Button. */
 rollBtn.addEventListener("click", function() {
-    element.classList.remove('animate__animated', 'animate__bounceInLeft');
    gameLogic();
 
 })
