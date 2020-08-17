@@ -18,9 +18,11 @@ function showResetButton() {
     resetBtn.style.display = "block"
 }
 
-function animatedMessage() {
+function animatedMessageOn() {
 const element = document.querySelector('.animated');
+element.classList.add('animate__animated', 'animate__bounceInLeft');
 }
+
 
 function gameLogic() {
     turn++;
@@ -30,7 +32,7 @@ function gameLogic() {
         message.textContent = `Player 1 Turn ${turn + 1}`
         if (randomNumber == 1) {
             message.textContent = "😈Evil Number One😈"
-            element.classList.add('animate__animated', 'animate__bounceInLeft');
+            animatedMessage()
             player1Score -= 20;
             player1Scoreboard.textContent = player1Score
             player1Dice.textContent = randomNumber
@@ -44,7 +46,7 @@ function gameLogic() {
        message.textContent = `Player 2 Turn ${turn + 1}`
        if (randomNumber == 1) {
         message.textContent = "😈Evil Number One😈"
-        element.classList.add('animate__animated', 'animate__bounceInLeft');
+        animatedMessage()
         player2Score -= 20;
         player2Scoreboard.textContent = player1Score
         player2Dice.textContent = randomNumber
@@ -57,11 +59,11 @@ function gameLogic() {
 
    if (player1Score >= 20) {
        message.textContent = "Player 1 Won 🥳"
-       element.classList.add('animate__animated', 'animate__bounceInLeft');
+       animatedMessage()
        showResetButton()
    }  else if (player2Score >= 20) {
        message.textContent = "Player 2 Won 🎉"
-       element.classList.add('animate__animated', 'animate__bounceInLeft');;
+       animatedMessage()
        showResetButton()
    }
    if (turn == 5 && player1Turn) {
@@ -80,7 +82,7 @@ function gameLogic() {
 }
 
 
-/*Hook up a click event listener to the Roll Dice Button. */
+/*Hook up a click event listener to the Start Button. */
 startBtn.addEventListener("click", function() {
 reset();
 })
@@ -88,7 +90,7 @@ reset();
 
 /* Hook up a click event listener to the Roll Dice Button. */
 rollBtn.addEventListener("click", function() {
-
+    element.classList.remove('animate__animated', 'animate__bounceInLeft');
    gameLogic();
 
 })
