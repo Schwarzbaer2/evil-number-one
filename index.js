@@ -23,7 +23,6 @@ const element = document.querySelector('.animated');
 element.classList.add('animate__animated', 'animate__bounceInLeft');
 }
 
-
 function gameLogic() {
     turn++;
     const randomNumber = Math.floor(Math.random() * 6) + 1
@@ -37,7 +36,6 @@ function gameLogic() {
             player1Scoreboard.textContent = player1Score
             player1Dice.textContent = randomNumber
         } else {
-
        player1Score += randomNumber
        player1Scoreboard.textContent = player1Score
        player1Dice.textContent = randomNumber
@@ -47,11 +45,11 @@ function gameLogic() {
        message.textContent = `Player 2 Turn ${turn + 1}`
        if (randomNumber == 1) {
         message.textContent = "😈Evil Number One😈"
+        animatedMessage();
         player2Score -= 20;
         player2Scoreboard.textContent = player1Score
         player2Dice.textContent = randomNumber
     } else {
-
        player2Score += randomNumber
        player2Scoreboard.textContent = player2Score
        player2Dice.textContent = randomNumber
@@ -60,9 +58,11 @@ function gameLogic() {
 
    if (player1Score >= 20) {
        message.textContent = "Player 1 Won 🥳"
+       animatedMessage();
        showResetButton()
    }  else if (player2Score >= 20) {
        message.textContent = "Player 2 Won 🎉"
+       animatedMessage();
        showResetButton()
    }
    if (turn == 5 && player1Turn) {
@@ -92,6 +92,10 @@ rollBtn.addEventListener("click", function() {
 
    gameLogic();
 
+})
+
+resetBtn.addEventListener("click", function(){
+    reset()
 })
 
 function reset() {
