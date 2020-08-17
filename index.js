@@ -25,7 +25,7 @@ animationOn.classList.add('animate__animated', 'animate__bounceInLeft');
 
 function animatedMessageOff() {
     const animationOff = document.querySelector('.animated');
-    animatedMessageOff.classList.remove('animate__animated', 'animate__bounceInLeft');
+    animationOff.classList.remove('animate__animated', 'animate__bounceInLeft');
     }
 
 
